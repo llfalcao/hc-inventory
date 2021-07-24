@@ -1,5 +1,5 @@
 {
-    "homepage": "https://upbeat-sammet-30d0af.netlify.app",
+    "homepage": "https://hc-inventory.herokuapp.com",
     "name": "hc-inventory",
     "version": "1.0.0",
     "main": "server.js",
