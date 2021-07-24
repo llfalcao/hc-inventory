@@ -1,4 +1,5 @@
 {
+    "homepage": "https://boiling-coast-02291.herokuapp.com/",
     "name": "hc-inventory",
     "version": "1.0.0",
     "main": "server.js",
