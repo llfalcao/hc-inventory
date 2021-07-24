@@ -1,15 +1,21 @@
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
-
-import atypeDefs from "./typeDefs";
-import aresolvers from "./resolvers";
+import typeDefs from "./typeDefs";
+import resolvers from "./resolvers";
+import path from "path";
 
 async function startApolloServer() {
     const app = express();
 
     const server = new ApolloServer({
-        typeDefs: atypeDefs,
-        resolvers: aresolvers,
+        typeDefs,
+        resolvers,
+        context: {},
+    });
+
+    app.use(express.static("public"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "./public/index.html"));
     });
 
     await server.start();
