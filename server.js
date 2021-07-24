@@ -13,10 +13,10 @@ async function startApolloServer() {
         context: {},
     });
 
-    app.use(express.static("public"));
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "./public/index.html"));
-    });
+    app.use(
+        "*",
+        express.static(path.join(__dirname, "public", "/public/index.html"))
+    );
 
     await server.start();
     server.applyMiddleware({ app });
