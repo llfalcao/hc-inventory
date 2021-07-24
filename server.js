@@ -18,11 +18,20 @@ async function startApolloServer() {
         express.static(path.join(__dirname, "public", "/public/index.html"))
     );
 
+    app.use(express.static("public"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "./public/index.html"));
+    });
+
     await server.start();
     server.applyMiddleware({ app });
 
     const PORT = process.env.PORT || 4000;
-    await new Promise((resolve) => app.listen({ port: PORT }, resolve));
+    const HOSTNAME = process.env.HOSTNAME || "localhost";
+
+    await new Promise((resolve) =>
+        app.listen({ port: PORT, hostname: HOSTNAME }, resolve)
+    );
     console.log(
         `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
     );
