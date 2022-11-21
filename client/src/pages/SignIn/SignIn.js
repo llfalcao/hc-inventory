@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as S from "./styled";
 
 export default function SignIn() {
-    const history = useHistory("");
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -11,7 +11,7 @@ export default function SignIn() {
         event.preventDefault();
 
         localStorage.setItem("user", JSON.stringify([{ email, password }]));
-        history.push("/home");
+        navigate("/home");
     };
 
     const handleEmailChange = (event) => setEmail(event.target.value);
