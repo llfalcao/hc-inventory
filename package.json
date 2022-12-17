@@ -9,7 +9,7 @@
         "apollo-server-express": "^3.0.2",
         "concurrently": "^6.2.0",
         "esm": "^3.2.25",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "graphql": "^15.5.1",
         "uuid": "^8.3.2"
     },
